@@ -46,4 +46,13 @@ Openseadragon is "An open-source, web-based viewer for high-resolution zoomable 
 Put the dzi file and the dzi folding in the working directory where html file will be located.
 
 ### 2) Create an HTML file (if needed, CSS and javascript files).
-An example html file can be found above.
+An example html file can be found above. The `tileSources:` must be change to the location of the dzi file. In the example below, the dzi file is located at `working_dir/slides`. The `working_dir` is where the HTML file is located.
+
+```
+var viewer = OpenSeadragon({
+        id: "openseadragon1",
+        prefixUrl: "/openseadragon/images/",
+        tileSources: "/slides/somthing.dzi"
+    });
+
+```
