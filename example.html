@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test_ca_10</title>
+    
+</head>
+<body>
+    <h2>Example slide</h2>  
+
+
+<div id="openseadragon1" style="width: 500px; height: 500px;"></div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="/openseadragon/openseadragon.min.js"></script>
+<script type="text/javascript">
+    var viewer = OpenSeadragon({
+        id: "openseadragon1",
+        prefixUrl: "/openseadragon/images/",
+        tileSources: "/slides/somthing.dzi"
+    });
+
+</script>
+</body>
+</html>
