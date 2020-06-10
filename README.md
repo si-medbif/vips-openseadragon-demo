@@ -35,3 +35,4 @@ If everything works as expected, the slide files will be present in the working 
 ```
 $ vips dzsave something.svs something_dir --tile-size=299 --overlap=0
 ```
+The outputs are a dzi file and a dzi folders containing tile files. Both components are required by Openseadragon.
