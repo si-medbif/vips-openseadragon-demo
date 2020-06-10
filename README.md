@@ -27,6 +27,6 @@ $ sudo docker build -t libvips-openslide-alpine .
 ### 2) Access the docker container
 Copy files of whole slide images to the working directory before accessing the container. To access the container, use the following command:
 ```
-$ sudo docker run --rm -it -v /home/to/working_dir:/data libvips-openslide-alpine /bin/bash
+$ sudo docker run --rm -it -v /home/to/working_dir:/data -w /data libvips-openslide-alpine /bin/bash
  
 ```
