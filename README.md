@@ -1,5 +1,5 @@
 # vips-openseadragon-demo
-A demonstration of converting a whole slide image by VIPS and displaying it on the Internet by openseadragon.
+An exampl of converting a whole slide image (SVS) by VIPS and displaying it on the Internet by openseadragon.
 
 ***
 ## Pre-requisite
@@ -36,3 +36,14 @@ If everything works as expected, the slide files will be present in the working 
 $ vips dzsave something.svs something_dir --tile-size=299 --overlap=0
 ```
 The outputs are a dzi file and a dzi folders containing tile files. Both components are required by Openseadragon.
+
+***
+## Openseadragon
+
+Openseadragon is "An open-source, web-based viewer for high-resolution zoomable images, implemented in pure JavaScript, for desktop and mobile". More information regarding Openseadragon can be found here: https://openseadragon.github.io/
+
+### 1) Preparing files for Openseadragon
+Put the dzi file and the dzi folding in the working directory where html file will be located.
+
+### 2) Create an HTML file (if needed, CSS and javascript files).
+An example html file can be found above.
