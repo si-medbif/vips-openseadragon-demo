@@ -43,10 +43,11 @@ The outputs are a dzi file and a dzi folders containing tile files. Both compone
 Openseadragon is "An open-source, web-based viewer for high-resolution zoomable images, implemented in pure JavaScript, for desktop and mobile". More information regarding Openseadragon can be found here: https://openseadragon.github.io/
 
 ### 1) Preparing files for Openseadragon
-Put the dzi file and the dzi folding in the working directory where html file will be located.
+1) Put the dzi file and the dzi folder in the working directory (or in subdirectory of the working directory for better organization) where html file will be located. 
+2) Download (https://github.com/openseadragon/openseadragon/releases/download/v2.4.2/openseadragon-bin-2.4.2.zip) and extract Openseadragon at the working directory. The folder name could be renamed to be easier to refer to (e.g. just `/openseadradon/`).
 
 ### 2) Create an HTML file (if needed, CSS and javascript files).
-An example html file can be found here (https://github.com/si-medbif/vips-openseadragon-demo/blob/master/example.html). The `tileSources:` must be change to the location of the dzi file. In the example below, the dzi file is located at `working_dir/slides`. The `working_dir` is where the HTML file is located.
+An example html file can be found here (https://github.com/si-medbif/vips-openseadragon-demo/blob/master/example.html). The `tileSources:` must be change to the location of the dzi file. In the example below, the dzi file is located at `working_dir/slides`. Openseadragon is located at `working_dir/openseadragon`. The `working_dir` is where the HTML file is located.
 
 ```
 var viewer = OpenSeadragon({
@@ -56,3 +57,12 @@ var viewer = OpenSeadragon({
     });
 
 ```
+### 3) Publish the HTML file
+
+The easiest way is to use a docker image of apache to quickly set up website. The example below is for setting up a simple docker image to publish the HTML file. 
+
+```
+$ sudo docker run -dit --name quick-web -p 80:80 -v /path/to/working_dir/:/usr/local/apache2/htdocs/ httpd:2.4
+```
+
+If this is run on the local machine, the website should be present at http://localhost/example.html
