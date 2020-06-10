@@ -4,7 +4,7 @@ A demonstration of converting a whole slide image by VIPS and displaying it on t
 ***
 ## Pre-requisite
 - Ubuntu machine
-- Docker installed (https://docs.docker.com/engine/install/ubuntu/)
+- Docker-CE installed (https://docs.docker.com/engine/install/ubuntu/)
 - `subversion` install (`sudo apt install subversion`)
 - (Optional = not needed for a test run on http://localhost ) Open port for Interent access (i.e. http, https). 
 
@@ -18,5 +18,15 @@ The easiet way to use VIPS is through a docker container.
 A Dockerfile for VIPS is available at https://github.com/jcupitt/docker-builds/tree/master/ . We will use a container with VIPS and Openslide. To build a container, use the following commands:
 
 ```
-$ svn
+$ svn checkout https://github.com/jcupitt/docker-builds/trunk/libvips-openslide-alpine
+$ cd libvips-openslide-alpine
+$ sudo docker build -t libvips-openslide-alpine .
+```
+**Note:** /tree/master/ in the github link for `svn` is replaced by /trunk/
+
+### 2) Access the docker container
+Copy files of whole slide images to the working directory before accessing the container. To access the container, use the following command:
+```
+$ sudo docker run --rm -it -v /home/to/working_dir:/data libvips-openslide-alpine /bin/bash
+ 
 ```
