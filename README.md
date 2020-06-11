@@ -37,23 +37,30 @@ $ vips dzsave something.svs something_dir --tile-size=299 --overlap=0
 ```
 The outputs are a dzi file and a dzi folders containing tile files. Both components are required by Openseadragon.
 
+### 4) For MRXS files
+VIPS might return an error when converting an MRXS file to dzi. If this happens, the MRXS file must be re-processed by slide converter of 3DHISTEC's CaseViewer (https://www.3dhistech.com/software-downloads/ ; Free version is OK). The file must be converted from mrxs to mrxs again (this is not a typo!). VIPS should be able to process the new MRXS file (e.g. `something.mrxs` and `something/`) using the following command:
+```
+$ vips dzsave something.mrxs something_dir --tile-size=299 --overlap=0
+```
+The outputs are a dzi file and a dzi folders containing tile files. Both components are required by Openseadragon.
+
 ***
 ## Openseadragon
 
 Openseadragon is "An open-source, web-based viewer for high-resolution zoomable images, implemented in pure JavaScript, for desktop and mobile". More information regarding Openseadragon can be found here: https://openseadragon.github.io/
 
 ### 1) Preparing files for Openseadragon
-1) Put the dzi file and the dzi folder in the working directory (or in subdirectory of the working directory for better organization) where html file will be located. 
-2) Download (https://github.com/openseadragon/openseadragon/releases/download/v2.4.2/openseadragon-bin-2.4.2.zip) and extract Openseadragon at the working directory. The folder name could be renamed to be easier to refer to (e.g. just `/openseadradon/`).
+1) Put the dzi file and the dzi folder in the working directory (or in a subdirectory of the working directory for better organization) where html file will be located. 
+2) Download (https://github.com/openseadragon/openseadragon/releases/download/v2.4.2/openseadragon-bin-2.4.2.zip) and extract Openseadragon at the working directory. The folder name could be renamed to be easier to refer to (e.g. just `openseadradon/`).
 
 ### 2) Create an HTML file (if needed, CSS and javascript files).
-An example html file can be found here (https://github.com/si-medbif/vips-openseadragon-demo/blob/master/example.html). The `tileSources:` must be change to the location of the dzi file. In the example below, the dzi file is located at `working_dir/slides`. Openseadragon is located at `working_dir/openseadragon`. The `working_dir` is where the HTML file is located.
+An example html file can be found here (https://github.com/si-medbif/vips-openseadragon-demo/blob/master/example.html). The `tileSources:` must be change to the location of the dzi file. In the example below, the dzi file is located at `working_dir/slides`, and openseadragon is located at `working_dir/openseadragon` (i.e. `openseadragon-bin-2.4.2/` is renamed to `openseadragon/` and moved to the `working_dir`). The `working_dir` is where the HTML file is located.
 
 ```
 var viewer = OpenSeadragon({
         id: "openseadragon1",
         prefixUrl: "/openseadragon/images/",
-        tileSources: "/slides/somthing.dzi"
+        tileSources: "/slides/something.dzi"
     });
 
 ```
@@ -65,4 +72,4 @@ The easiest way is to use a docker image of apache to quickly set up website. Th
 $ sudo docker run -dit --name quick-web -p 80:80 -v /path/to/working_dir/:/usr/local/apache2/htdocs/ httpd:2.4
 ```
 
-If this is run on the local machine, the website should be present at http://localhost/example.html
+If this is run on the local machine, the website should be present at http://localhost/example.html .
