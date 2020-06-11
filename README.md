@@ -66,7 +66,7 @@ var viewer = OpenSeadragon({
 ```
 ### 3) Publish the HTML file
 
-The easiest way is to use a docker image of apache to quickly set up website. The example below is for setting up a simple docker image to publish the HTML file. 
+The easiest way is to use a docker image of apache to quickly set up website. The example below is for setting up a simple docker image to publish the HTML file. Change `-v /path/to/working_dir/` to the absolute path to the working directory in which HTML files, openseadragon, and dzi files are kept, 
 
 ```
 $ sudo docker run -dit --name quick-web -p 80:80 -v /path/to/working_dir/:/usr/local/apache2/htdocs/ httpd:2.4
