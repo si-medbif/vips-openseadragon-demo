@@ -54,7 +54,7 @@ Openseadragon is "An open-source, web-based viewer for high-resolution zoomable 
 2) Download (https://github.com/openseadragon/openseadragon/releases/download/v2.4.2/openseadragon-bin-2.4.2.zip) and extract Openseadragon at the working directory. The folder name could be renamed to be easier to refer to (e.g. just `openseadradon/`).
 
 ### 2) Create an HTML file (if needed, CSS and javascript files).
-An example html file can be found here (https://github.com/si-medbif/vips-openseadragon-demo/blob/master/example.html). The following part of the HTML file must be changed:
+An example html file can be found here (https://github.com/si-medbif/vips-openseadragon-demo/blob/master/example.html). The following part of the HTML file must be edited:
 
 ```
 var viewer = OpenSeadragon({
