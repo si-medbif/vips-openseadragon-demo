@@ -1,5 +1,5 @@
 # vips-openseadragon-demo
-An exampl of converting a whole slide image (e.g. SVS, MRXS) by VIPS and displaying it on the Internet by openseadragon.
+An example of converting a whole slide image (e.g. SVS, MRXS) by VIPS and displaying it on the Internet by openseadragon.
 
 ***
 ## Pre-requisite
