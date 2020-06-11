@@ -54,7 +54,7 @@ Openseadragon is "An open-source, web-based viewer for high-resolution zoomable 
 2) Download (https://github.com/openseadragon/openseadragon/releases/download/v2.4.2/openseadragon-bin-2.4.2.zip) and extract Openseadragon at the working directory. The folder name could be renamed to be easier to refer to (e.g. just `openseadradon/`).
 
 ### 2) Create an HTML file (if needed, CSS and javascript files).
-An example html file can be found here (https://github.com/si-medbif/vips-openseadragon-demo/blob/master/example.html). The `tileSources:` must be change to the location of the dzi file. In the example below, the dzi file is located at `working_dir/slides`, and openseadragon is located at `working_dir/openseadragon` (i.e. `openseadragon-bin-2.4.2/` is renamed to `openseadragon/` and moved to the `working_dir`). The `working_dir` is where the HTML file is located.
+An example html file can be found here (https://github.com/si-medbif/vips-openseadragon-demo/blob/master/example.html). The following part of the HTML file must be changed:
 
 ```
 var viewer = OpenSeadragon({
@@ -64,6 +64,8 @@ var viewer = OpenSeadragon({
     });
 
 ```
+The `tileSources:` must be change to the location of the dzi file. In the example below, the dzi file is located at `working_dir/slides`, and openseadragon is located at `working_dir/openseadragon` (i.e. `openseadragon-bin-2.4.2/` is renamed to `openseadragon/` and moved to the `working_dir`). The `working_dir` is where the HTML file is located.
+
 ### 3) Publish the HTML file
 
 The easiest way is to use a docker image of apache to quickly set up website. The example below is for setting up a simple docker image to publish the HTML file. Change `-v /path/to/working_dir/` to the absolute path to the working directory in which HTML files, openseadragon, and dzi files are kept, 
